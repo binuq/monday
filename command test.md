@@ -6,3 +6,4 @@ export MONO_HOME=/Library/Frameworks/Mono.framework/Versions/5.18.1
 export PATH=$PATH:$MONO_HOME/bin
 ```
 
+haha
