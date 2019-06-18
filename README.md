@@ -1,2 +1,5 @@
 # monday
 working
+
+sunday
+saturday
