@@ -1,0 +1,97 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+ohi_data <- read_csv("https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/OHI_global_data.csv")
+
+```
+
+*banaka*
+```{r}
+ggplot(data = ohi_data, aes(x = OHI_score, y = HDI, label=country)) + 
+  geom_point(aes(x = OHI_score, y = HDI)) +
+  geom_text()
+
+```
+
+
+```{r}
+ggplot(data = ohi_data, aes(x = OHI_score, y = HDI)) + 
+  geom_point() + 
+  theme_bw()
+```
+
+```{r}
+source('https://raw.githubusercontent.com/OHI-Science/ohiprep/master/src/R/scatterTheme.txt')       
+
+```
+
+
+```{r}
+ggplot(data = ohi_data, aes(x = OHI_score, y = HDI)) + 
+  geom_point() + 
+  scatterTheme
+```
+
+
+```{r}
+ggplot(data = ohi_data, aes(y = OHI_score, x = HDI, color=georegion_one)) + 
+  geom_point() + 
+    labs(y = "OHI score, 2017",
+       x = "Human Development Index",
+       title = "Countries with high human development have more sustainable oceans",
+      color = "Georegion") +  # if color doesn't work, use "fill"
+     theme_bw()
+```
+
+
+```{r}
+ggplot(data = ohi_summary, aes(x = georegions, y = OHI_score_average)) + 
+  geom_bar(stat="identity", fill = "lightgray") +
+  geom_jitter(data=ohi_data, aes(x=georegion_one, y=OHI_score), color="red", size=3, alpha=0.3) +
+  theme_bw()
+```
+
+
+```{r}
+install.packages("RColorBrewer")
+```
+```{r}
+install.packages("colorspace")
+
+```
+
+
+```{r}
+library("RColorBrewer")
+
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+library(tidyverse)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
